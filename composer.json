@@ -1,0 +1,43 @@
+{
+  "name": "v2dmim/gateway",
+  "description": "gateway service.",
+  "type": "project",
+  "keywords": [
+    "v2dmim",
+    "gateway",
+    "service"
+  ],
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "liangtao",
+      "email": "liangtao.gz@foxmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.0.2",
+    "topthink/think-orm": "^2.0",
+    "swoole/ide-helper": "@dev",
+    "ext-json": "*",
+    "ext-pdo": "*",
+    "ext-mbstring": "*",
+    "ext-redis": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "app\\": "app"
+    },
+    "psr-0": {
+      "": "src/"
+    }
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://mirrors.aliyun.com/composer/"
+    }
+  }
+}
