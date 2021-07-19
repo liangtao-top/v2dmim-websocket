@@ -15,8 +15,8 @@ declare(strict_types=1);
 namespace app\model;
 
 use app\common\Model;
-use app\struct\Gender;
 use app\struct\AllowType;
+use app\struct\Gender;
 
 /**
  * 用户资料
@@ -81,12 +81,10 @@ class ProfileModel extends Model
 
     /**
      * @param string $nickName
-     * @return ProfileModel
      */
-    public function setNickName(string $nickName): ProfileModel
+    public function setNickName(string $nickName): void
     {
         $this->nickName = $nickName;
-        return $this;
     }
 
     /**
