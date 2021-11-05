@@ -42,7 +42,7 @@ class Server
      */
     public function __construct()
     {
-        $this->_config              = config();
+        $this->_config = config();
         $web_socket_instance_config = $this->_config ['swoole'] ?? [];
         Log::info('WebSocket service start time ' . (new DateTime)->format('Y-m-d H:i:s'));
         Log::info('CPU number: ' . swoole_cpu_num());
@@ -52,7 +52,6 @@ class Server
         }
         Log::info('PHP version: ' . PHP_VERSION_ID);
         Log::info('SWOOLE version: ' . SWOOLE_VERSION);
-        /** @noinspection PhpUndefinedFunctionInspection */
         Log::info('current process PID：' . posix_getpid());
         Log::info('Reactor number of Threads：' . $web_socket_instance_config['reactor_num']);
         Log::info('Worker number of processes：' . $web_socket_instance_config['worker_num']);
@@ -61,12 +60,11 @@ class Server
         Log::info('process daemon：' . ($web_socket_instance_config['daemonize'] ? 'true' : 'false'));
         Log::info('heartbeat check interval：' . $web_socket_instance_config['heartbeat_check_interval'] . 's');
         Log::info('heartbeat idle time：' . $web_socket_instance_config['heartbeat_idle_time'] . 's');
-        $this->_webSocket = new Ws(
-            "0.0.0.0",
-            $this->_config['websocket']['port'],
-            SWOOLE_PROCESS,
-            $this->_config['websocket']['protocol'] === 'wss' ? SWOOLE_SOCK_TCP | SWOOLE_SSL : null
-        );
+        if ($this->_config['websocket']['protocol'] === 'wss') {
+            $this->_webSocket = new Ws("0.0.0.0", $this->_config['websocket']['port'], SWOOLE_PROCESS, SWOOLE_SOCK_TCP | SWOOLE_SSL);
+        } else {
+            $this->_webSocket = new Ws("0.0.0.0", $this->_config['websocket']['port'], SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
+        }
         Log::info("{$this->_config['websocket']['protocol']}://0.0.0.0:{$this->_config['websocket']['port']}");
         $this->_webSocket->set($web_socket_instance_config);
         $process = (new Process($this->_webSocket))->start();
@@ -166,7 +164,7 @@ class Server
 
     /**
      * 此事件在 Worker 进程 / Task 进程 启动时发生，这里创建的对象可以在进程生命周期内使用
-     * @param Ws  $ws
+     * @param Ws $ws
      * @param int $worker_id
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2020/10/30 9:56
@@ -189,7 +187,7 @@ class Server
 
     /**
      * 此事件在 Worker 进程终止时发生。在此函数中可以回收 Worker 进程申请的各类资源。
-     * @param Ws  $ws
+     * @param Ws $ws
      * @param int $worker_id
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2020/10/31 12:07
@@ -207,7 +205,7 @@ class Server
     /**
      * WebSocket 建立连接后进行握手
      * 设置 onHandShake 回调函数后不会再触发 onOpen 事件，需要应用代码自行处理
-     * @param Request  $request
+     * @param Request $request
      * @param Response $response
      * @return false
      * @author       TaoGe <liangtao.gz@foxmail.com>
@@ -217,21 +215,21 @@ class Server
     {
         Log::info("fd：$request->fd websocket握手连接算法验证");
         $secWebSocketKey = $request->header['sec-websocket-key'];
-        $patten          = '#^[+/0-9A-Za-z]{21}[AQgw]==$#';
+        $patten = '#^[+/0-9A-Za-z]{21}[AQgw]==$#';
         if (0 === preg_match($patten, $secWebSocketKey) || 16 !== strlen(base64_decode($secWebSocketKey))) {
             $response->end();
             return false;
         }
-        $key     = base64_encode(
+        $key = base64_encode(
             sha1(
                 $request->header['sec-websocket-key'] . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11',
                 true
             )
         );
         $headers = [
-            'Upgrade'               => 'websocket',
-            'Connection'            => 'Upgrade',
-            'Sec-WebSocket-Accept'  => $key,
+            'Upgrade' => 'websocket',
+            'Connection' => 'Upgrade',
+            'Sec-WebSocket-Accept' => $key,
             'Sec-WebSocket-Version' => '13',
         ];
         Log::info("fd：$request->fd websocket握手连接鉴权验证");
@@ -255,7 +253,7 @@ class Server
 
     /**
      * 当 WebSocket 客户端与服务器建立连接并完成握手后会回调此函数。
-     * @param Ws      $ws
+     * @param Ws $ws
      * @param Request $request
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2020/10/30 10:32
@@ -268,7 +266,7 @@ class Server
 
     /**
      * 有新的连接进入时，在 worker 进程中回调。
-     * @param Ws  $ws
+     * @param Ws $ws
      * @param int $fd
      * @param int $reactorId
      * @author       TaoGe <liangtao.gz@foxmail.com>
@@ -282,7 +280,7 @@ class Server
 
     /**
      * HTTP服务
-     * @param Request  $request
+     * @param Request $request
      * @param Response $response
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2020/10/30 10:34
@@ -311,7 +309,7 @@ class Server
 
     /**
      * 当服务器收到来自客户端的数据帧时会回调此函数。
-     * @param Ws    $ws
+     * @param Ws $ws
      * @param Frame $frame
      * @author       TaoGe <liangtao.gz@foxmail.com>
      * @date         2020/10/30 10:32
@@ -330,7 +328,7 @@ class Server
 
     /**
      * 在 task 进程内被调用。
-     * @param Ws   $ws
+     * @param Ws $ws
      * @param Task $task
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2020/11/25 17:44
@@ -341,8 +339,8 @@ class Server
         Log::task("New AsyncTask[id=$task->id]");
         $task_id = $task->id;
         $from_id = $task->worker_id;
-        $data    = $task->data;
-        $result  = Event::task($ws, $task_id, $from_id, $data);
+        $data = $task->data;
+        $result = Event::task($ws, $task_id, $from_id, $data);
         if ($result) {
             if (isset($data['arg']) && is_array($data['arg'])) {
                 array_push($data['arg'], $result);
@@ -357,8 +355,8 @@ class Server
 
     /**
      * 此回调函数在 worker 进程被调用，当 worker 进程投递的任务在 task 进程中完成时， task 进程会通过 Swoole\Server->finish() 方法将任务处理的结果发送给 worker 进程
-     * @param Ws    $ws
-     * @param int   $task_id
+     * @param Ws $ws
+     * @param int $task_id
      * @param mixed $data
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2020/10/30 10:14
@@ -371,7 +369,7 @@ class Server
 
     /**
      * TCP 客户端连接关闭后，在 worker 进程中回调此函数。
-     * @param Ws  $ws
+     * @param Ws $ws
      * @param int $fd
      * @param int $reactorId
      * @author TaoGe <liangtao.gz@foxmail.com>

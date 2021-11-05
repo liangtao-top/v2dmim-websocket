@@ -10,18 +10,19 @@
   "license": "Apache-2.0",
   "authors": [
     {
-      "name": "liangtao",
-      "email": "liangtao.gz@foxmail.com"
+      "name": "TaoGe",
+      "email": "liangtao.gz@foxmail.com",
+      "role": "Developer"
     }
   ],
   "require": {
-    "php": ">=8.0.2",
-    "topthink/think-orm": "^2.0",
-    "swoole/ide-helper": "@dev",
+    "php": ">=8.0.12",
     "ext-json": "*",
-    "ext-pdo": "*",
     "ext-mbstring": "*",
-    "ext-redis": "*"
+    "linkorb/etcd-php": "^1.6"
+  },
+  "require-dev": {
+    "swoole/ide-helper": "@dev"
   },
   "autoload": {
     "psr-4": {
@@ -29,7 +30,11 @@
     },
     "psr-0": {
       "": "src/"
-    }
+    },
+    "files": [
+      "src/helper.php",
+      "src/basic.php"
+    ]
   },
   "config": {
     "preferred-install": "dist"

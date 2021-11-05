@@ -19,7 +19,7 @@ return [
     'log'       => true,
     'websocket' => [
         'port'     => 9502,
-        'protocol' => 'wss',
+        'protocol' => 'ws',
     ],
     'swoole'  => [
         'daemonize'                => 0, // 进程守护
