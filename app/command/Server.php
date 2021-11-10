@@ -10,7 +10,7 @@
 // +----------------------------------------------------------------------
 // | Version: 2.0 2019-11-26 14:21
 // +----------------------------------------------------------------------
-namespace app\command;
+namespace command;
 
 use com\ip\LocalIP;
 use com\pool\redis\MemberPool;
@@ -18,7 +18,7 @@ use com\pool\redis\online\OnlinePool;
 use com\pool\redis\route\business\DownPool;
 use com\pool\redis\route\business\RegisterPool;
 use DateTime;
-use app\command\Result as R;
+use V2dmIM\Gateway\command\Result as R;
 use com\log\Log;
 use Swoole\Server\Task;
 use Swoole\WebSocket\Frame;

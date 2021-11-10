@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/6/2 17:15
 // +----------------------------------------------------------------------
 
-namespace app\command;
+namespace command;
 
 use com\ip\LocalIP;
 use com\log\Log;
@@ -64,6 +64,8 @@ class Process
 
     public function start(): \Swoole\Process
     {
+        // 使用 enable_coroutine 来控制是否启用协程
+        $this->process->set(['enable_coroutine' => true]);
         return $this->process;
     }
 

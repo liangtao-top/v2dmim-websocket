@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/26 14:20
 // +----------------------------------------------------------------------
 
-namespace app\struct;
+namespace struct;
 
 use com\enum\Enum;
 

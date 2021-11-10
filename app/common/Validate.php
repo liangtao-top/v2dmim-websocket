@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/28 11:59
 // +----------------------------------------------------------------------
 
-namespace app\common;
+namespace common;
 
 
 abstract class Validate extends \com\validate\Validate

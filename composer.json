@@ -3,9 +3,7 @@
   "description": "gateway service.",
   "type": "project",
   "keywords": [
-    "v2dmim",
-    "gateway",
-    "service"
+    "v2dmim-gateway"
   ],
   "license": "Apache-2.0",
   "authors": [
@@ -18,31 +16,38 @@
   "require": {
     "php": ">=8.0.12",
     "ext-json": "*",
+    "ext-zlib": "*",
     "ext-mbstring": "*",
-    "linkorb/etcd-php": "^1.6"
+    "liangtao/v2dmim-core": "@dev"
   },
   "require-dev": {
-    "swoole/ide-helper": "@dev"
+    "swoole/ide-helper": "@dev",
+    "phpunit/phpunit": "^9.5"
   },
   "autoload": {
     "psr-4": {
-      "app\\": "app"
-    },
-    "psr-0": {
-      "": "src/"
+      "V2dmIM\\Gateway\\": "src2/"
     },
     "files": [
-      "src/helper.php",
-      "src/basic.php"
+      "src2/basic.php"
     ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "V2dmIM\\Tests\\Gateway\\": "tests/"
+    }
   },
   "config": {
     "preferred-install": "dist"
   },
-  "repositories": {
-    "packagist": {
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../../com/php/core"
+    },
+    {
       "type": "composer",
       "url": "https://mirrors.aliyun.com/composer/"
     }
-  }
+  ]
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/4/6 11:02
 // +----------------------------------------------------------------------
 
-namespace app\common;
+namespace common;
 
 abstract class Http
 {

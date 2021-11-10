@@ -12,10 +12,10 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/28 12:12
 // +----------------------------------------------------------------------
 
-namespace app\dao;
+namespace dao;
 
-use app\common\Dao;
-use app\model\DeviceModel;
+use common\Dao;
+use model\DeviceModel;
 use com\pool\redis\online\DevicePool as Pool;
 use com\traits\crud\Min;
 

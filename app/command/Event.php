@@ -11,14 +11,14 @@
 // | Version: 2.0 2020-01-19 13:36
 // +----------------------------------------------------------------------
 
-namespace app\command;
+namespace command;
 
-use app\command\Result as R;
-use app\dao\DeviceDao;
-use app\dao\OnlineDao;
-use app\model\DeviceModel;
-use app\struct\Device;
-use app\validate\Server as Validate;
+use V2dmIM\Gateway\command\Result as R;
+use dao\DeviceDao;
+use dao\OnlineDao;
+use model\DeviceModel;
+use struct\Device;
+use validate\Server as Validate;
 use com\log\Log;
 use com\sign\TokenSig;
 use Swoole\Http\Request;

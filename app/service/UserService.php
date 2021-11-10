@@ -12,13 +12,13 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/31 14:28
 // +----------------------------------------------------------------------
 
-namespace app\service;
+namespace service;
 
-use app\common\Service;
-use app\dao\OnlineDao;
-use app\dao\ProfileDao;
-use app\model\DeviceModel;
-use app\model\OnlineModel;
+use common\Service;
+use dao\OnlineDao;
+use dao\ProfileDao;
+use model\DeviceModel;
+use model\OnlineModel;
 use com\ip\LocalIP;
 use com\sign\UserSig;
 

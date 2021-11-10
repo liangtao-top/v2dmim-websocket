@@ -12,9 +12,9 @@ declare(strict_types=1);
 // | Version: 2.0 2021/6/1 15:54
 // +----------------------------------------------------------------------
 
-namespace app\model;
+namespace model;
 
-use app\common\Model;
+use common\Model;
 
 /**
  * Class Server

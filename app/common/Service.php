@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/27 13:31
 // +----------------------------------------------------------------------
 
-namespace app\common;
+namespace common;
 
 abstract class Service
 {

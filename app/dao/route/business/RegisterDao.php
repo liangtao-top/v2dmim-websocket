@@ -12,10 +12,10 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/28 12:12
 // +----------------------------------------------------------------------
 
-namespace app\dao\route\business;
+namespace dao\route\business;
 
-use app\common\Dao;
-use app\model\ServerModel;
+use common\Dao;
+use model\ServerModel;
 use com\pool\redis\route\business\RegisterPool;
 use com\traits\crud\Min;
 

@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace app;
 
-use app\command\Server;
+use V2dmIM\Gateway\command\Server;
 
 class App
 {

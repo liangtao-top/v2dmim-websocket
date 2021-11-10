@@ -11,12 +11,12 @@
 // | Date: 2021/5/31 14:25
 // +----------------------------------------------------------------------
 
-namespace app\controller;
+namespace controller;
 
-use app\common\Base;
-use app\dao\DeviceDao;
-use app\dao\OnlineDao;
-use app\service\UserService;
+use common\Base;
+use dao\DeviceDao;
+use dao\OnlineDao;
+use service\UserService;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server as Ws;
 
@@ -39,7 +39,7 @@ class User extends Base
     public function login(array $param, Ws &$ws, Frame &$frame): bool
     {
         $data     = $param['data'] ?? [];
-        $validate = new \app\validate\User();
+        $validate = new \validate\User();
         $result   = $validate->scene(__FUNCTION__)->check($data);
         if (!$result) {
             $this->setError($validate->getError());

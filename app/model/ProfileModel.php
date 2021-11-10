@@ -12,11 +12,11 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/26 14:15
 // +----------------------------------------------------------------------
 
-namespace app\model;
+namespace model;
 
-use app\common\Model;
-use app\struct\AllowType;
-use app\struct\Gender;
+use common\Model;
+use struct\AllowType;
+use struct\Gender;
 
 /**
  * 用户资料
@@ -88,7 +88,7 @@ class ProfileModel extends Model
     }
 
     /**
-     * @return \app\struct\Gender
+     * @return \struct\Gender
      */
     public function getGender(): Gender
     {
@@ -96,7 +96,7 @@ class ProfileModel extends Model
     }
 
     /**
-     * @param \app\struct\Gender $gender
+     * @param \struct\Gender $gender
      */
     public function setGender(Gender $gender): void
     {
@@ -200,7 +200,7 @@ class ProfileModel extends Model
     }
 
     /**
-     * @return \app\struct\AllowType
+     * @return \struct\AllowType
      */
     public function getAllowType(): AllowType
     {
@@ -208,7 +208,7 @@ class ProfileModel extends Model
     }
 
     /**
-     * @param \app\struct\AllowType $allowType
+     * @param \struct\AllowType $allowType
      */
     public function setAllowType(AllowType $allowType): void
     {

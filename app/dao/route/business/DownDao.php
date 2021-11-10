@@ -12,9 +12,9 @@ declare(strict_types=1);
 // | Version: 2.0 2021/6/3 9:53
 // +----------------------------------------------------------------------
 
-namespace app\dao\route\business;
+namespace dao\route\business;
 
-use app\common\Dao;
+use common\Dao;
 use com\request\Request;
 use com\pool\redis\route\business\DownPool;
 

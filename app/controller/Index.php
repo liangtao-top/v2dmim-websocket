@@ -11,9 +11,9 @@
 // | Version: 2.0 2020-02-26 16:39
 // +----------------------------------------------------------------------
 
-namespace app\controller;
+namespace controller;
 
-use app\common\Http;
+use common\Http;
 
 /**
  * Class Index

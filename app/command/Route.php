@@ -12,11 +12,11 @@ declare(strict_types=1);
 // | Version: 2.0 2021/6/1 14:03
 // +----------------------------------------------------------------------
 
-namespace app\command;
+namespace command;
 
-use app\dao\route\business\DownDao;
-use app\dao\route\business\RegisterDao;
-use app\model\OnlineModel;
+use dao\route\business\DownDao;
+use dao\route\business\RegisterDao;
+use model\OnlineModel;
 use com\log\Log;
 use com\request\Request;
 use JetBrains\PhpStorm\Pure;
@@ -75,8 +75,8 @@ class Route
 
     /**
      * toDispatch
-     * @param array                       $params
-     * @param \app\model\OnlineModel|null $online
+     * @param array                   $params
+     * @param \model\OnlineModel|null $online
      * @return Request
      * @author TaoGe <liangtao.gz@foxmail.com>
      * @date   2021/6/2 11:44

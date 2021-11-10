@@ -12,10 +12,10 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/28 13:36
 // +----------------------------------------------------------------------
 
-namespace app\model;
+namespace model;
 
-use app\common\Model;
-use app\struct\Device;
+use common\Model;
+use struct\Device;
 
 /**
  * 用户在线记录模型
@@ -72,7 +72,7 @@ class OnlineModel extends Model
     }
 
     /**
-     * @return \app\struct\Device
+     * @return \struct\Device
      */
     public function getDevice(): Device
     {
@@ -80,7 +80,7 @@ class OnlineModel extends Model
     }
 
     /**
-     * @param \app\struct\Device $device
+     * @param \struct\Device $device
      */
     public function setDevice(Device $device): void
     {

@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/10 9:38
 // +----------------------------------------------------------------------
 
-namespace app\common;
+namespace common;
 
 
 abstract class Struct extends \com\struct\Struct

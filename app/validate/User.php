@@ -10,9 +10,9 @@
 // +----------------------------------------------------------------------
 // | Version: 2.0 2019-11-27 22:18
 // +----------------------------------------------------------------------
-namespace app\validate;
+namespace validate;
 
-use app\common\Validate;
+use common\Validate;
 
 /**
  * Class User

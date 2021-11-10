@@ -12,12 +12,12 @@ declare(strict_types=1);
 // | Version: 2.0 2021/5/27 15:35
 // +----------------------------------------------------------------------
 
-namespace app\dao;
+namespace dao;
 
-use app\common\Dao;
-use app\model\ProfileModel as Model;
-use app\struct\AllowType;
-use app\struct\Gender;
+use common\Dao;
+use model\ProfileModel as Model;
+use struct\AllowType;
+use struct\Gender;
 use com\pool\redis\MemberPool as Pool;
 use com\traits\crud\STD;
 use think\facade\Db;

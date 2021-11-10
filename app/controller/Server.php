@@ -12,9 +12,9 @@ declare(strict_types=1);
 // | Version: 2.0 2021/6/17 15:06
 // +----------------------------------------------------------------------
 
-namespace app\controller;
+namespace controller;
 
-use app\common\Base;
+use common\Base;
 
 /**
  * Class Server

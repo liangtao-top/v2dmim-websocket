@@ -12,7 +12,7 @@ declare(strict_types=1);
 // | Version: 2.0 2021/6/9 15:42
 // +----------------------------------------------------------------------
 
-namespace app\common;
+namespace common;
 
 
 abstract class Model extends \com\struct\Struct
