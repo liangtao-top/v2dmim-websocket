@@ -38,7 +38,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "V2dmIM\\Tests\\Gateway\\": "tests/"
+      "V2dmIM\\Tests\\WebSocket\\": "tests/"
     }
   },
   "config": {
