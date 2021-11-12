@@ -1,2 +1,3 @@
-# V2IMDM WebSocket网关服务
+# V2IMDM 
+WebSocket 网关服务。
 
