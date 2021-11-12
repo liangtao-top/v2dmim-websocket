@@ -1,2 +1,2 @@
-# V2IMDM WebSocket网关层
+# V2IMDM WebSocket网关服务
 
