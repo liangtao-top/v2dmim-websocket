@@ -12,7 +12,7 @@
 // | Date: 2021/4/20 10:28
 // +----------------------------------------------------------------------
 
-use V2dmIM\Gateway\App;
+use V2dmIM\WebSocket\App;
 
 // vendor
 require 'vendor/autoload.php';
