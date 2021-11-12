@@ -16,7 +16,7 @@ namespace V2dmIM\WebSocket\command;
 use V2dmIM\Core\utils\log\Log;
 use V2dmIM\Core\utils\sign\TokenSig;
 use V2dmIM\Core\utils\validate\Validate;
-use V2dmIM\WebSocket\command\Result as R;
+use V2dmIM\Core\utils\Result as R;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Swoole\WebSocket\Frame;

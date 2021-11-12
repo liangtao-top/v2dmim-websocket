@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace V2dmIM\WebSocket\command;
 
 use Exception;
-use Swoole\Coroutine;
 use V2dmIM\Core\etcd\Register;
 use V2dmIM\Core\etcd\Schema;
 use V2dmIM\Core\utils\ip\LocalIP;
