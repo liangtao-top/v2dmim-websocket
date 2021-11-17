@@ -16,7 +16,7 @@ use DateTime;
 use V2dmIM\Core\enum\EventType;
 use V2dmIM\Core\utils\ip\LocalIP;
 use V2dmIM\Core\utils\log\Log;
-use V2dmIM\Core\utils\Result as R;
+use V2dmIM\Core\Result as R;
 use Swoole\Server\Task;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server as Ws;

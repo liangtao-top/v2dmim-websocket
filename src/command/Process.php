@@ -36,15 +36,16 @@ class Process
     public static function register(): \Swoole\Process
     {
         return new \Swoole\Process(function () {
-            $ip = LocalIP::instance()->getIp();
-            Log::success("service register ip: $ip");
+            $ip   = '192.168.0.255';
+            $port = 9502;
+            Log::info("WebSocket service registration succeeded, ip: $ip port: $port");
             $register = new Register('etcd:2379', 'v3beta');
 //            \Swoole\Process::signal(SIGTERM, function () use (&$register, $ip) {
 //                Log::warning("service unregister ip: $ip");
 //                $register->unregister();    // 收到停止信号后，注销服务
 //            });
             try {
-                $register->register(Schema::GATEWAY(), $ip, 9502, 3);
+                $register->register(Schema::GATEWAY(), $ip, $port, 3);
             } catch (Exception $e) {
                 Log::error($e->getMessage());
             }
